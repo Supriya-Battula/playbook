@@ -67,7 +67,7 @@ resource "azurerm_network_security_rule" "rule" {
   network_security_group_name = azurerm_network_security_group.main.name
 }
 resource "azurerm_linux_virtual_machine" "main" {
-  name                = "ansiblevm"
+  name                = "jenkins"
   location            = azurerm_resource_group.qt.location
   resource_group_name = azurerm_resource_group.qt.name
   size                = "Standard_B1s"
