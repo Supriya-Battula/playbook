@@ -71,9 +71,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = azurerm_resource_group.qt.location
   resource_group_name = azurerm_resource_group.qt.name
   size                = "Standard_B1s"
-  admin_username      = "playbook"
-  admin_password      = Supriya123456789
-  network_interface_ids = [
+    network_interface_ids = [
     azurerm_network_interface.main.id,
   ]  
   os_disk {
@@ -86,6 +84,14 @@ resource "azurerm_linux_virtual_machine" "main" {
     offer     = "0001-com-ubuntu-server-focal"
     sku       = "20_04-lts"
     version   = "latest"
+  }
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "newansible"
+    admin_password = "Password1234!"
+  }
+  os_profile_linux_config {
+    disable_password_authentication = false
   }
 }
     
