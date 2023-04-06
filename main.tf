@@ -76,7 +76,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   ]
   admin_ssh_key {
     username   = "playbook"
-    public_key = file("path")
+    public_key = file("~/.ssh/id_rsa.pub")
   }
   os_disk {
     caching              = "ReadWrite"
