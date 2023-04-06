@@ -72,7 +72,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   resource_group_name = azurerm_resource_group.qt.name
   size                = "Standard_B1s"
   admin_username      = "playbook"
-  password            = Supriya@123
+  password            = Supriya123
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]  
@@ -88,6 +88,6 @@ resource "azurerm_linux_virtual_machine" "main" {
     version   = "latest"
   }
 }
-
+    
 
 
