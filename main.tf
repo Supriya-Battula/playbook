@@ -73,8 +73,6 @@ resource "azurerm_linux_virtual_machine" "main" {
   size                = "Standard_B1s"
   admin_username      = "playbook"
   password            = "Supriya@123"
-  
-}
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]  
@@ -89,7 +87,7 @@ resource "azurerm_linux_virtual_machine" "main" {
     sku       = "20_04-lts"
     version   = "latest"
   }
-
+}
 
 
 
