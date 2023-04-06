@@ -71,6 +71,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = azurerm_resource_group.qt.location
   resource_group_name = azurerm_resource_group.qt.name
   size                = "Standard_B1s"
+  admin_username = "newansible"
+  admin_password = "Supriya@123456789"
     network_interface_ids = [
     azurerm_network_interface.main.id,
   ]  
@@ -85,14 +87,7 @@ resource "azurerm_linux_virtual_machine" "main" {
     sku       = "20_04-lts"
     version   = "latest"
   }
-  os_profile {
-    computer_name  = "hostname"
-    admin_username = "newansible"
-    admin_password = "Password1234!"
-  }
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
+  
 }
     
 
