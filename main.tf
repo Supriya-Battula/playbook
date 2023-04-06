@@ -26,6 +26,7 @@ resource "azurerm_subnet" "main" {
   resource_group_name  = azurerm_resource_group.qt.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["192.168.1.0/24"]
+
   depends_on = [
     azurerm_virtual_network.main
   ]
@@ -71,13 +72,12 @@ resource "azurerm_linux_virtual_machine" "main" {
   resource_group_name = azurerm_resource_group.qt.name
   size                = "Standard_B1s"
   admin_username      = "playbook"
+  password            = "Supriya@123"
+  
+}
   network_interface_ids = [
     azurerm_network_interface.main.id,
-  ]
-  admin_ssh_key {
-    username   = "playbook"
-    public_key = file("C:\\Users\\91799\\.ssh\\id_rsa.pem")
-  }
+  ]  
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
@@ -89,8 +89,7 @@ resource "azurerm_linux_virtual_machine" "main" {
     sku       = "20_04-lts"
     version   = "latest"
   }
-  depends_on = [
-    azurerm_resource_group.qt
-  ]
-}
+
+
+
 
