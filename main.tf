@@ -75,7 +75,7 @@ resource "azurerm_linux_virtual_machine" "main" {
     azurerm_network_interface.main.id,
   ]
   admin_ssh_key {
-    username   = "playbool"
+    username   = "playbook"
     public_key = file("~/.ssh/id_rsa.pub")
   }
   os_disk {
