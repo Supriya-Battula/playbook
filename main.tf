@@ -75,7 +75,10 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_password = "Supriya@123456789"
     network_interface_ids = [
     azurerm_network_interface.main.id,
-  ]  
+  ] 
+  os_profile_linux_config { 
+  disable_password_authentication = false
+  }
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
