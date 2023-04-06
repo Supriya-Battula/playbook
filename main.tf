@@ -74,6 +74,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_username = "newansible"
   admin_password = "Supriya@123456789"
   disable_password_authentication = false
+  custom_data = filebase64("ansible.sh")
     network_interface_ids = [
     azurerm_network_interface.main.id,
   ]  
